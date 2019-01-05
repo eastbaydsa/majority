@@ -35,11 +35,9 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "start": "npm run develop",
+    "start": "concurrently -n functions,gatsby \"npm run serve-functions\" \"gatsby develop\"",
     "clean": "rimraf .cache public functions",
     "build": "npm run clean && npm run build-functions && gatsby build",
-    "develop": "gatsby develop",
-    "serve": "concurrently -n functions,gatsby \"npm run serve-functions\" \"npm run develop\"",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve-functions": "netlify-lambda serve ./functions-src -p 8080",
