@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PostList from '../components/PostList'
 import Pagination from '../components/Pagination'
+import NewsletterForm from '../components/NewsletterForm';
 
 export default class IndexPage extends React.Component {
   render() {
@@ -12,6 +13,7 @@ export default class IndexPage extends React.Component {
 
     return (
       <Layout>
+        <NewsletterForm />
         <PostList posts={posts} title="Latest posts" />
         <Pagination pageContext={pageContext} pathPrefix="/" />
       </Layout>

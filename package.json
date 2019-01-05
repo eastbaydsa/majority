@@ -27,7 +27,9 @@
     "react": "^16.2.0",
     "react-dom": "^16.4.1",
     "react-helmet": "^5.2.0",
-    "uuid": "^3.2.1"
+    "react-xstate-js": "^2.1.0",
+    "uuid": "^3.2.1",
+    "xstate": "^4.2.3"
   },
   "keywords": [
     "gatsby"
