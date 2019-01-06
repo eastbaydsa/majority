@@ -12,12 +12,15 @@ export const BlogPostTemplate = ({
   title,
   date,
   author,
+  imgSrc,
+  imgAlt,
 }) => {
   return (
     <section className="section">
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
+            <img src={imgSrc} alt={imgAlt} />
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
@@ -67,11 +70,23 @@ BlogPostTemplate.propTypes = {
 }
 
 const BlogPost = ({ data }) => {
+  console.log(data)
   const { wordpressPost: post } = data
+
+  const imgSrc = post.featured_media.localFile.childImageSharp.fluid.src
+  const imgAlt = post.featured_media.alt_text
 
   return (
     <Layout>
-      <Helmet title={`${post.title} | Blog`} />
+      <Helmet>
+        <title>{`${post.title} | Blog`}</title>
+        {/* TODO: more robust social media tagging */}
+        <meta
+          property="og:image"
+          content={`https://eastbaymajority.com/${imgSrc}`}
+        />
+        <meta property="og:image:alt" content={imgAlt} />
+      </Helmet>
       <BlogPostTemplate
         content={post.content}
         categories={post.categories}
@@ -79,6 +94,8 @@ const BlogPost = ({ data }) => {
         title={post.title}
         date={post.date}
         author={post.author}
+        imgSrc={imgSrc}
+        imgAlt={imgAlt}
       />
     </Layout>
   )
@@ -99,6 +116,10 @@ export const pageQuery = graphql`
     content
     date(formatString: "MMMM DD, YYYY")
     title
+    featured_media {
+      id
+      alt_text
+    }
   }
   query BlogPostByID($id: String!) {
     wordpressPost(id: { eq: $id }) {
@@ -107,6 +128,16 @@ export const pageQuery = graphql`
       slug
       content
       date(formatString: "MMMM DD, YYYY")
+      featured_media {
+        alt_text
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 1500) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
       categories {
         name
         slug
