@@ -1,3 +1,5 @@
+const proxy = require('http-proxy-middleware')
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby + WordPress Starter',
@@ -26,4 +28,14 @@ module.exports = {
     'gatsby-plugin-purgecss',
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
+  developMiddleware: app => {
+    app.use(
+      proxy('/.netlify/functions/', {
+        target: 'http://localhost:8080/',
+        pathRewrite: {
+          '^/\\.netlify/functions': '',
+        },
+      })
+    )
+  },
 }

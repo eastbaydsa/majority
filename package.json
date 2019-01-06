@@ -5,6 +5,7 @@
   "author": "GatsbyCentral.com",
   "dependencies": {
     "bulma": "^0.7.0",
+    "concurrently": "^4.1.0",
     "gatsby": "^2.0.0",
     "gatsby-awesome-pagination": "^0.3.3",
     "gatsby-plugin-lodash": "^3.0.1",
@@ -19,6 +20,7 @@
     "gatsby-transformer-remark": "^2.1.1",
     "gatsby-transformer-sharp": "^2.1.1",
     "lodash": "^4.17.5",
+    "netlify-lambda": "^1.1.1",
     "node-sass": "^4.9.2",
     "parcel-bundler": "^1.9.4",
     "prop-types": "^15.6.0",
@@ -33,13 +35,13 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "start": "npm run develop",
-    "clean": "rimraf .cache public",
-    "build": "npm run clean && gatsby build",
-    "develop": "gatsby develop",
-    "serve": "gatsby serve",
+    "start": "concurrently -n functions,gatsby \"npm run serve-functions\" \"gatsby develop\"",
+    "clean": "rimraf .cache public functions",
+    "build": "npm run clean && npm run build-functions && gatsby build",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve-functions": "netlify-lambda serve ./functions-src -p 8080",
+    "build-functions": "netlify-lambda build ./functions-src"
   },
   "devDependencies": {
     "eslint-config-airbnb": "^17.1.0",
