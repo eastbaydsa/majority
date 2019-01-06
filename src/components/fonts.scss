@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'ManifoldDSA';
+  font-weight: bold;
+  font-style: normal;
+  src: url('../fonts/ManifoldDSA-ExtraBold.eot');
+  src: url('../fonts/ManifoldDSA-ExtraBold.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/ManifoldDSA-ExtraBold.woff2') format('woff2'),
+    url('../fonts/ManifoldDSA-ExtraBold.woff') format('woff'),
+    url('../fonts/ManifoldDSA-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ManifoldDSA';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/ManifoldDSA-Medium.eot');
+  src: url('../fonts/ManifoldDSA-Medium.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/ManifoldDSA-Medium.woff2') format('woff2'),
+    url('../fonts/ManifoldDSA-Medium.woff') format('woff'),
+    url('../fonts/ManifoldDSA-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ManifoldDSA';
+  font-weight: 300;
+  font-style: normal;
+  src: url('../fonts/ManifoldDSA-Light.eot');
+  src: url('../fonts/ManifoldDSA-Light.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/ManifoldDSA-Light.woff2') format('woff2'),
+    url('../fonts/ManifoldDSA-Light.woff') format('woff'),
+    url('../fonts/ManifoldDSA-Light.ttf') format('truetype');
+}

@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
+// import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
 export const BlogPostTemplate = ({
@@ -21,7 +22,7 @@ export const BlogPostTemplate = ({
               {title}
             </h1>
             <div dangerouslySetInnerHTML={{ __html: content }} />
-            <div style={{ marginTop: `4rem` }}>
+            {/* <div style={{ marginTop: `4rem` }}>
               <p>
                 {date} - posted by{' '}
                 <Link to={`/author/${author.slug}`}>{author.name}</Link>
@@ -52,7 +53,7 @@ export const BlogPostTemplate = ({
                   </ul>
                 </div>
               ) : null}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

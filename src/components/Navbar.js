@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
-import github from '../img/github-icon.svg'
 import logo from '../img/logo.svg'
 
 const Navbar = () => (
@@ -27,7 +26,7 @@ const Navbar = () => (
               </figure>
             </Link>
           </div>
-          <div className="navbar-start">
+          {/* <div className="navbar-start">
             {data.allWordpressPage.edges.map(edge => (
               <Link
                 className="navbar-item"
@@ -37,9 +36,9 @@ const Navbar = () => (
                 {edge.node.title}
               </Link>
             ))}
-          </div>
+          </div> */}
           <div className="navbar-end">
-            <a
+            {/* <a
               className="navbar-item"
               href="https://github.com/GatsbyCentral/gatsby-starter-wordpress"
               target="_blank"
@@ -48,7 +47,7 @@ const Navbar = () => (
               <span className="icon">
                 <img src={github} alt="Github" />
               </span>
-            </a>
+            </a> */}
           </div>
         </div>
       </nav>

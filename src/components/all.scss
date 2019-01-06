@@ -1,0 +1,30 @@
+@import '~modern-normalize/modern-normalize.css';
+@import 'fonts';
+
+body {
+  font-family: 'ManifoldDSA', 'Helvetica Neue', Arial, Sans-Serif;
+}
+
+.content {
+  h1 {
+    margin: 0 20px 0.75rem;
+  }
+
+  h2 {
+    margin: 30px 20px 0.75rem;
+  }
+
+  p {
+    margin: 0 20px 0.75rem;
+    font-size: 17px;
+    line-height: 1.4em;
+  }
+
+  a {
+    color: #ed2c24;
+
+    &:hover {
+      color: darken(#ed2c24, 15%);
+    }
+  }
+}
