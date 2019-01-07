@@ -70,7 +70,6 @@ BlogPostTemplate.propTypes = {
 }
 
 const BlogPost = ({ data }) => {
-  console.log(data)
   const { wordpressPost: post } = data
 
   const imgSrc = post.featured_media.localFile.childImageSharp.fluid.src
