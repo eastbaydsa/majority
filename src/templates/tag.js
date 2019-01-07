@@ -1,6 +1,3 @@
-// TODO: this page is broken, something's wrong with the GraphQL query
-
-/*
 import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
@@ -33,7 +30,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allWordpressPost(filter: { tags: { slug: { eq: $slug } } }) {
+    allWordpressPost(filter: { tags: { elemMatch: { slug: { eq: $slug } } } }) {
       totalCount
       edges {
         node {
@@ -43,4 +40,3 @@ export const pageQuery = graphql`
     }
   }
 `
-*/
