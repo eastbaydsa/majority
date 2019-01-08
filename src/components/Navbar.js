@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
-import logo from '../img/logo.svg'
+import ebdsaLogo from '../img/ebdsa-logo@2x.png'
+import './navbar.scss'
 
 const Navbar = () => (
   <StaticQuery
@@ -17,15 +18,22 @@ const Navbar = () => (
       }
     `}
     render={data => (
-      <nav className="navbar is-transparent">
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item">
-              <figure className="image">
-                <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-              </figure>
-            </Link>
+      <div className="header">
+        <Link to="/">
+          <div className="logo">
+            <span className="logo__the">THE</span>
+            <span className="logo__majority">MAJORITY</span>
           </div>
+        </Link>
+        <div className="ebdsa">
+          <img src={ebdsaLogo} alt="East Bay DSA" />
+          <p>
+            A publication by the East Bay Chapter of the
+            <br />
+            Democratic Socialists of America
+          </p>
+        </div>
+        <nav className="navbar">
           {/* <div className="navbar-start">
             {data.allWordpressPage.edges.map(edge => (
               <Link
@@ -37,20 +45,8 @@ const Navbar = () => (
               </Link>
             ))}
           </div> */}
-          <div className="navbar-end">
-            {/* <a
-              className="navbar-item"
-              href="https://github.com/GatsbyCentral/gatsby-starter-wordpress"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="icon">
-                <img src={github} alt="Github" />
-              </span>
-            </a> */}
-          </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     )}
   />
 )

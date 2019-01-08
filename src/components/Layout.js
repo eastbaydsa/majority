@@ -6,7 +6,13 @@ import './all.scss'
 
 const TemplateWrapper = ({ children }) => (
   <div>
-    <Helmet title="Home | Gatsby + WordPress" />
+    <Helmet>
+      <title>East Bay Majority</title>
+      <link
+        href="https://fonts.googleapis.com/css?family=Anton"
+        rel="stylesheet"
+      />
+    </Helmet>
     <Navbar />
     <div>{children}</div>
   </div>
