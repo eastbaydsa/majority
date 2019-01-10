@@ -21,9 +21,12 @@ export const BlogPostTemplate = ({
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <img src={imgSrc} alt={imgAlt} />
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
+            <h1
+              className="title is-size-2 has-text-weight-bold is-bold-light"
+              dangerouslySetInnerHTML={{
+                __html: title,
+              }}
+            />
             <div dangerouslySetInnerHTML={{ __html: content }} />
             {/* <div style={{ marginTop: `4rem` }}>
               <p>

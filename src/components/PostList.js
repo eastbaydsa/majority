@@ -15,9 +15,13 @@ export default class IndexPage extends React.Component {
           {posts.map(({ node: post }) => (
             <div className="content post-listing" key={post.id}>
               <p>
-                <Link className="has-text-primary" to={post.slug}>
-                  {post.title}
-                </Link>
+                <Link
+                  className="has-text-primary"
+                  to={post.slug}
+                  dangerouslySetInnerHTML={{
+                    __html: post.title,
+                  }}
+                />
                 <span> &bull; </span>
                 <small>
                   {post.date}
