@@ -21,41 +21,39 @@ export default class IndexPage extends React.Component {
 
             return (
               <div className="content post-listing" key={post.id}>
-                <h2>
-                  <Link
-                    className="has-text-primary"
-                    to={post.slug}
+                <Link to={post.slug} className="post-listing__link">
+                  <h2
                     dangerouslySetInnerHTML={{
                       __html: post.title,
                     }}
                   />
-                </h2>
-                {/* <small>
+                  {/* <small>
                     {post.date}
                     - posted by{' '}
                   <Link to={`/author/${post.author.slug}`}>
                     {post.author.name}
                   </Link>
                   </small> */}
-                <div className="post-listing__details">
-                  {imgSrc && (
-                    <div className="post-listing__image">
-                      <img src={imgSrc} alt={imgAlt} />
-                    </div>
-                  )}
-                  <div className="post-listing__description">
-                    <div>
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: post.excerpt.replace(
-                            /<p class="link-more.*/,
-                            ''
-                          ),
-                        }}
-                      />
+                  <div className="post-listing__details">
+                    {imgSrc && (
+                      <div className="post-listing__image">
+                        <img src={imgSrc} alt={imgAlt} />
+                      </div>
+                    )}
+                    <div className="post-listing__description">
+                      <div>
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: post.excerpt.replace(
+                              /<p class="link-more.*/,
+                              ''
+                            ),
+                          }}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               </div>
             )
           })}

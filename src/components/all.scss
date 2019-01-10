@@ -9,17 +9,22 @@ body {
 }
 
 .content {
-  max-width: 750px;
+  max-width: map-get($breakpoints, 'tablet');
   margin: 0 auto;
-  color: #333;
+  color: $text-color;
 
   h1 {
     margin: 0 20px 0.75rem;
     font-size: 28px;
     line-height: 1.3em;
+    font-family: 'Rasa', serif;
 
     @include bp(tablet) {
       font-size: 32px;
+    }
+
+    a {
+      text-decoration: none;
     }
   }
 
@@ -27,9 +32,14 @@ body {
     margin: 30px 20px 0.75rem;
     font-size: 22px;
     line-height: 1.3em;
+    font-family: 'Rasa', serif;
 
     @include bp(tablet) {
       font-size: 25px;
+    }
+
+    a {
+      text-decoration: none;
     }
   }
 
@@ -58,11 +68,33 @@ body {
 }
 
 .post-listing {
-  background: white;
-  padding: 30px;
-  margin-bottom: 40px;
-  background: #ffffff;
-  border-radius: 6px;
+  margin-bottom: 20px;
+
+  @include bp(tablet) {
+    margin-bottom: 40px;
+  }
+
+  &__link {
+    text-decoration: none;
+    display: block;
+    background: white;
+    border-radius: 6px;
+    transition: box-shadow 0.15s;
+    margin: 0 20px;
+    padding: 20px;
+
+    @include bp(tablet) {
+      padding: 30px;
+    }
+
+    &:hover {
+      box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.06);
+
+      h2 {
+        color: $red;
+      }
+    }
+  }
 
   img {
     padding: 0;
@@ -71,10 +103,12 @@ body {
   }
 
   &__details {
-    margin-top: 30px;
+    margin-top: 20px;
 
     img {
-      float: left;
+      @include bp(tablet) {
+        float: left;
+      }
     }
   }
 
@@ -82,5 +116,9 @@ body {
   h2,
   p {
     margin: 0;
+  }
+
+  p {
+    color: $text-color;
   }
 }

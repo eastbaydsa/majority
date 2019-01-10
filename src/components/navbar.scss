@@ -1,10 +1,15 @@
+@import 'breakpoints';
 @import 'colors';
 
 .header {
   background: $red;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   text-align: center;
   padding: 40px 0;
+
+  @include bp(tablet) {
+    margin-bottom: 40px;
+  }
 
   .logo {
     font-family: Anton, Impact, Helvetica, 'Arial Black', sans-serif;
