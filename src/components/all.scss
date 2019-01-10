@@ -5,6 +5,7 @@
 
 body {
   font-family: 'ManifoldDSA', 'Helvetica Neue', Arial, Sans-Serif;
+  background: #eee;
 }
 
 .content {
@@ -56,8 +57,30 @@ body {
   }
 }
 
-.post-listing:not(:first-child) {
-  margin-top: 30px;
-  padding-top: 30px;
-  border-top: solid 1px $red;
+.post-listing {
+  background: white;
+  padding: 30px;
+  margin-bottom: 40px;
+  background: #ffffff;
+  border-radius: 6px;
+
+  img {
+    padding: 0;
+    margin: 0 20px 20px 0;
+    max-width: 260px;
+  }
+
+  &__details {
+    margin-top: 30px;
+
+    img {
+      float: left;
+    }
+  }
+
+  h1,
+  h2,
+  p {
+    margin: 0;
+  }
 }

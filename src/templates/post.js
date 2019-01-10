@@ -76,7 +76,6 @@ const BlogPost = ({ data }) => {
   const { wordpressPost: post } = data
 
   const { featured_media } = post
-
   const imgSrc =
     featured_media && featured_media.localFile.childImageSharp.fluid.src
   const imgAlt = featured_media && featured_media.alt_text

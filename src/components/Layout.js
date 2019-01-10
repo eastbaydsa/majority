@@ -12,6 +12,10 @@ const TemplateWrapper = ({ children }) => (
         href="https://fonts.googleapis.com/css?family=Anton"
         rel="stylesheet"
       />
+      <link
+        href="https://fonts.googleapis.com/css?family=Rasa"
+        rel="stylesheet"
+      />
     </Helmet>
     <Navbar />
     <div>{children}</div>

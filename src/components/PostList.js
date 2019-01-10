@@ -12,34 +12,53 @@ export default class IndexPage extends React.Component {
           {/* <div className="content">
             <h1 className="has-text-weight-bold is-size-2">{title}</h1>
           </div> */}
-          {posts.map(({ node: post }) => (
-            <div className="content post-listing" key={post.id}>
-              <p>
-                <Link
-                  className="has-text-primary"
-                  to={post.slug}
-                  dangerouslySetInnerHTML={{
-                    __html: post.title,
-                  }}
-                />
-                <span> &bull; </span>
-                <small>
-                  {post.date}
-                  {/* - posted by{' '}
+          {posts.map(({ node: post }) => {
+            const { featured_media } = post
+            const imgSrc =
+              featured_media &&
+              featured_media.localFile.childImageSharp.fluid.src
+            const imgAlt = featured_media && featured_media.alt_text
+
+            return (
+              <div className="content post-listing" key={post.id}>
+                <h2>
+                  <Link
+                    className="has-text-primary"
+                    to={post.slug}
+                    dangerouslySetInnerHTML={{
+                      __html: post.title,
+                    }}
+                  />
+                </h2>
+                {/* <small>
+                    {post.date}
+                    - posted by{' '}
                   <Link to={`/author/${post.author.slug}`}>
                     {post.author.name}
-                  </Link> */}
-                </small>
-              </p>
-              <div>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: post.excerpt.replace(/<p class="link-more.*/, ''),
-                  }}
-                />
+                  </Link>
+                  </small> */}
+                <div className="post-listing__details">
+                  {imgSrc && (
+                    <div className="post-listing__image">
+                      <img src={imgSrc} alt={imgAlt} />
+                    </div>
+                  )}
+                  <div className="post-listing__description">
+                    <div>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: post.excerpt.replace(
+                            /<p class="link-more.*/,
+                            ''
+                          ),
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </section>
     )
@@ -65,5 +84,15 @@ export const pageQuery = graphql`
     }
     date(formatString: "MMMM DD, YYYY")
     slug
+    featured_media {
+      alt_text
+      localFile {
+        childImageSharp {
+          fluid(maxWidth: 520) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
   }
 `
