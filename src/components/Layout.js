@@ -13,7 +13,7 @@ const TemplateWrapper = ({ children }) => (
         rel="stylesheet"
       />
       <link
-        href="https://fonts.googleapis.com/css?family=Rasa"
+        href="https://fonts.googleapis.com/css?family=Rasa:400,500,600"
         rel="stylesheet"
       />
     </Helmet>

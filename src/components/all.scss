@@ -18,6 +18,7 @@ body {
     font-size: 28px;
     line-height: 1.3em;
     font-family: 'Rasa', serif;
+    font-weight: 600;
 
     @include bp(tablet) {
       font-size: 32px;
@@ -33,6 +34,11 @@ body {
     font-size: 22px;
     line-height: 1.3em;
     font-family: 'Rasa', serif;
+    font-weight: 500;
+
+    strong {
+      font-weight: 500;
+    }
 
     @include bp(tablet) {
       font-size: 25px;
