@@ -72,8 +72,11 @@ BlogPostTemplate.propTypes = {
 const BlogPost = ({ data }) => {
   const { wordpressPost: post } = data
 
-  const imgSrc = post.featured_media.localFile.childImageSharp.fluid.src
-  const imgAlt = post.featured_media.alt_text
+  const { featured_media } = post
+
+  const imgSrc =
+    featured_media && featured_media.localFile.childImageSharp.fluid.src
+  const imgAlt = featured_media && featured_media.alt_text
 
   return (
     <Layout>
