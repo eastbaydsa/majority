@@ -1,5 +1,6 @@
 @import '~modern-normalize/modern-normalize.css';
 @import 'breakpoints';
+@import 'colors';
 @import 'fonts';
 
 body {
@@ -42,10 +43,10 @@ body {
   }
 
   a {
-    color: #ed2c24;
+    color: $red;
 
     &:hover {
-      color: darken(#ed2c24, 15%);
+      color: darken($red, 15%);
     }
   }
 
