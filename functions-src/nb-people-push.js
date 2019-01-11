@@ -3,7 +3,7 @@ import axios from 'axios';
 const uri = "https://jefflee.nationbuilder.com/api/v1/people/push";
 
 exports.handler = async function nbPeoplePush({ body }, context, callback) {
-  const { firstName, lastName, email } = body;
+  const { firstName, lastName, email } = JSON.parse(body);
 
   const data = {
     email: email,
