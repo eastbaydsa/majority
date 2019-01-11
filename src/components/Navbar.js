@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link, StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
 import ebdsaLogo from '../img/ebdsa-logo@2x.png'
 import './navbar.scss'
+import Logo from './Logo'
 
 const Navbar = () => (
   <StaticQuery
@@ -19,12 +20,7 @@ const Navbar = () => (
     `}
     render={data => (
       <div className="header">
-        <Link to="/">
-          <div className="logo">
-            <span className="logo__the">THE</span>
-            <span className="logo__majority">MAJORITY</span>
-          </div>
-        </Link>
+        <Logo />
         <div className="ebdsa">
           <img src={ebdsaLogo} alt="East Bay DSA" />
           <p>
