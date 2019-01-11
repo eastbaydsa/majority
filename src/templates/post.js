@@ -85,13 +85,6 @@ const BlogPost = ({ data }) => {
     <Layout>
       <Helmet>
         <title>{he.decode(post.title)}</title>
-        <meta
-          name="description"
-          content="News for the East Bay's diverse, working-class majority. A publication by the East Bay Chapter of the Democratic Socialists of America."
-        />
-
-        <meta property="og:site_name" content="East Bay Majority" />
-        <meta property="og:url" content="https://eastbaymajority.com" />
 
         <meta property="twitter:card" content="summary" />
         {/* <meta property="twitter:site" content="@..." /> */}

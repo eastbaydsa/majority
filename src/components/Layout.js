@@ -9,6 +9,14 @@ const Layout = ({ bodyClass, children }) => (
   <div>
     <Helmet bodyAttributes={{ class: bodyClass }}>
       <title>East Bay Majority</title>
+      <meta
+        name="description"
+        content="News for the East Bay's diverse, working-class majority. A publication by the East Bay Chapter of the Democratic Socialists of America."
+      />
+
+      <meta property="og:site_name" content="East Bay Majority" />
+      <meta property="og:url" content="https://eastbaymajority.com" />
+
       <link
         href="https://fonts.googleapis.com/css?family=Anton"
         rel="stylesheet"
