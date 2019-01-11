@@ -84,7 +84,7 @@ const BlogPost = ({ data }) => {
   return (
     <Layout>
       <Helmet>
-        <title>{he.decode(post.title)}</title>
+        <title>{he.decode(post.title)} | East Bay Majority</title>
 
         <meta property="twitter:card" content="summary" />
         {/* <meta property="twitter:site" content="@..." /> */}
