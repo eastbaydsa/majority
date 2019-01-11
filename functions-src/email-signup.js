@@ -1,7 +1,6 @@
 const axios = require('axios')
 
-const endpoint =
-  'https://eastbaydsa-staging.herokuapp.com/external/signup-majority.json'
+const endpoint = 'https://www.eastbaydsa.org/external/signup-majority.json'
 
 success = callback => {
   callback(null, {
