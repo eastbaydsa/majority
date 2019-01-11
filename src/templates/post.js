@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 // import { graphql, Link } from 'gatsby'
 import { graphql } from 'gatsby'
+import he from 'he'
 import Layout from '../components/Layout'
 
 export const BlogPostTemplate = ({
@@ -83,13 +84,38 @@ const BlogPost = ({ data }) => {
   return (
     <Layout>
       <Helmet>
-        <title>{`${post.title} | Blog`}</title>
-        {/* TODO: more robust social media tagging */}
+        <title>{he.decode(post.title)}</title>
         <meta
-          property="og:image"
-          content={`https://eastbaymajority.com/${imgSrc}`}
+          name="description"
+          content="News for the East Bay's diverse, working-class majority. A publication by the East Bay Chapter of the Democratic Socialists of America."
         />
-        <meta property="og:image:alt" content={imgAlt} />
+
+        <meta property="og:site_name" content="East Bay Majority" />
+        <meta property="og:url" content="https://eastbaymajority.com" />
+
+        <meta property="twitter:card" content="summary" />
+        {/* <meta property="twitter:site" content="@..." /> */}
+        {/* <meta property="twitter:creator" content="@..." /> */}
+
+        <meta property="og:title" content={he.decode(post.title)} />
+        {post.excerpt && (
+          <meta
+            property="og:description"
+            content={he.decode(
+              post.excerpt
+                .replace(/<p class="link-more.*/, '')
+                .replace('<p>', '')
+                .replace('</p>', '')
+            )}
+          />
+        )}
+        {imgSrc && (
+          <meta
+            property="og:image"
+            content={`https://eastbaymajority.com${imgSrc}`}
+          />
+        )}
+        {imgAlt && <meta property="og:image:alt" content={imgAlt} />}
       </Helmet>
       <BlogPostTemplate
         content={post.content}
@@ -131,6 +157,7 @@ export const pageQuery = graphql`
       title
       slug
       content
+      excerpt
       date(formatString: "MMMM DD, YYYY")
       featured_media {
         alt_text
