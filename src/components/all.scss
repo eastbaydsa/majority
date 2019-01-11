@@ -113,6 +113,7 @@ body {
   img {
     padding: 0;
     max-width: 260px;
+    max-height: 200px;
     margin-bottom: 20px;
   }
 
@@ -133,6 +134,10 @@ body {
         float: left;
       }
     }
+  }
+
+  &__clear {
+    clear: both;
   }
 
   h1,

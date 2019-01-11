@@ -53,6 +53,7 @@ export default class IndexPage extends React.Component {
                       </div>
                     </div>
                   </div>
+                  <div class="post-listing__clear" />
                 </Link>
               </div>
             )
