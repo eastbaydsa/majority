@@ -1,0 +1,22 @@
+.logo {
+  font-family: Anton, Impact, Helvetica, 'Arial Black', sans-serif;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  user-select: none;
+
+  &__the {
+    display: block;
+    font-size: 28px;
+    letter-spacing: -0.005em;
+  }
+
+  &__majority {
+    display: block;
+    font-size: 56px;
+    letter-spacing: 0.01em;
+    border-top: solid 2px white;
+    margin-top: 6px;
+    padding-top: 6px;
+  }
+}
