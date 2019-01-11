@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 // import { graphql, Link } from 'gatsby'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import { DOMParser } from 'xmldom'
 
 export const BlogPostTemplate = ({
   content,
@@ -80,10 +81,15 @@ const BlogPost = ({ data }) => {
     featured_media && featured_media.localFile.childImageSharp.fluid.src
   const imgAlt = featured_media && featured_media.alt_text
 
+  // Wordpress titles need to be escaped to prevent special characters
+  // (like fancy quotes) from being rendered as text HTML entities
+  var dom = new DOMParser().parseFromString(`<div>${post.title}</div>`)
+  var decodedTitle = dom.childNodes[0].textContent
+
   return (
     <Layout>
       <Helmet>
-        <title>{`${post.title} | Blog`}</title>
+        <title>{`${decodedTitle} | Blog`}</title>
         {/* TODO: more robust social media tagging */}
         <meta
           property="og:image"

@@ -30,7 +30,8 @@
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
-    "uuid": "^3.2.1"
+    "uuid": "^3.2.1",
+    "xmldom": "^0.1.27"
   },
   "keywords": [
     "gatsby"
