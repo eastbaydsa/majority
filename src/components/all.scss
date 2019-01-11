@@ -13,7 +13,7 @@ body {
 
 .content {
   max-width: map-get($breakpoints, 'tablet');
-  margin: 0 auto;
+  margin: 0 auto 60px;
   color: $text-color;
 
   h1 {
