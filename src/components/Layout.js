@@ -4,9 +4,9 @@ import Helmet from 'react-helmet'
 import Navbar from './Navbar'
 import './all.scss'
 
-const TemplateWrapper = ({ children }) => (
+const Layout = ({ bodyClass, children }) => (
   <div>
-    <Helmet>
+    <Helmet bodyAttributes={{ class: bodyClass }}>
       <title>East Bay Majority</title>
       <link
         href="https://fonts.googleapis.com/css?family=Anton"
@@ -22,4 +22,4 @@ const TemplateWrapper = ({ children }) => (
   </div>
 )
 
-export default TemplateWrapper
+export default Layout

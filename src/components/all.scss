@@ -5,7 +5,10 @@
 
 body {
   font-family: 'ManifoldDSA', 'Helvetica Neue', Arial, Sans-Serif;
-  background: #eee;
+
+  &.front-page {
+    background: #eee;
+  }
 }
 
 .content {
@@ -16,7 +19,7 @@ body {
   h1 {
     margin: 0 20px 0.75rem;
     font-size: 28px;
-    line-height: 1.3em;
+    line-height: 1.2em;
     font-family: 'Rasa', serif;
     font-weight: 600;
 
@@ -30,18 +33,18 @@ body {
   }
 
   h2 {
-    margin: 30px 20px 0.75rem;
-    font-size: 22px;
+    margin: 35px 20px 0.75rem;
+    font-size: 24px;
     line-height: 1.3em;
     font-family: 'Rasa', serif;
     font-weight: 500;
 
-    strong {
-      font-weight: 500;
+    @include bp(tablet) {
+      font-size: 28px;
     }
 
-    @include bp(tablet) {
-      font-size: 25px;
+    strong {
+      font-weight: 500;
     }
 
     a {
@@ -50,12 +53,13 @@ body {
   }
 
   p {
+    font-size: 17px;
     margin: 0 20px 0.75rem;
-    line-height: 1.4em;
+    line-height: 1.5em;
 
     @include bp(tablet) {
-      font-size: 18px;
-      line-height: 1.5em;
+      font-size: 19px;
+      line-height: 1.55em;
     }
   }
 
@@ -69,7 +73,11 @@ body {
 
   img {
     max-width: 100%;
-    padding: 0 20px 30px;
+    padding: 0 20px 20px;
+
+    @include bp(tablet) {
+      padding-bottom: 30px;
+    }
   }
 }
 
@@ -104,15 +112,24 @@ body {
 
   img {
     padding: 0;
-    margin: 0 20px 20px 0;
     max-width: 260px;
+    margin-bottom: 20px;
   }
 
   &__details {
-    margin-top: 20px;
+    margin-top: 10px;
 
+    @include bp(tablet) {
+      margin-top: 20px;
+    }
+  }
+
+  &__image {
     img {
+      margin: 0 auto 10px;
+
       @include bp(tablet) {
+        margin: 0 20px 5px 0;
         float: left;
       }
     }
