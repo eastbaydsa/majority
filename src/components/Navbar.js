@@ -22,12 +22,8 @@ const Navbar = () => (
       <div className="header">
         <Logo />
         <div className="ebdsa">
+          <p>News for the East Bay's diverse, working-class majority</p>
           <img src={ebdsaLogo} alt="East Bay DSA" />
-          <p>
-            A publication by the East Bay Chapter of the
-            <br />
-            Democratic Socialists of America
-          </p>
         </div>
         <nav className="navbar">
           {/* <div className="navbar-start">

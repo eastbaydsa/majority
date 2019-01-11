@@ -5,14 +5,14 @@
   background: $red;
   margin-bottom: 20px;
   text-align: center;
-  padding: 40px 0;
+  padding: 35px 0;
 
   @include bp(tablet) {
     margin-bottom: 40px;
   }
 
   .ebdsa {
-    margin-top: 25px;
+    margin-top: 20px;
 
     img {
       width: 50px;
@@ -20,12 +20,12 @@
     }
 
     p {
-      font-size: 13px;
+      font-size: 18px;
       color: white;
       text-align: center;
       line-height: 1.3em;
       letter-spacing: 0.03em;
-      margin: 10px 0 0;
+      margin: 0 0 25px;
     }
   }
 }

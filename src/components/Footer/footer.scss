@@ -5,6 +5,7 @@
   background: $blue;
   min-height: 320px;
   color: $text-color-inverted;
+  margin-top: 40px;
 }
 
 .footer__content {
@@ -30,11 +31,29 @@
 
 .footer__column--logos {
   align-items: center;
-  flex-direction: column-reverse;
-  
+
   @include bp(tablet) {
     align-items: flex-end;
     flex-direction: column;
+  }
+
+  .ebdsa {
+    margin-top: 25px;
+    text-align: center;
+    width: 215px;
+
+    img {
+      width: 50px;
+      height: 62px;
+    }
+
+    p {
+      font-size: 13px;
+      color: white;
+      line-height: 1.3em;
+      letter-spacing: 0.03em;
+      margin: 10px 0 0;
+    }
   }
 }
 

@@ -4,7 +4,7 @@ import './logo.scss'
 
 export default function Logo() {
   return (
-    <Link to="/">
+    <Link to="/" className="logo-link">
       <div className="logo">
         <span className="logo__east-bay">EAST BAY</span>
         <span className="logo__majority">MAJORITY</span>
