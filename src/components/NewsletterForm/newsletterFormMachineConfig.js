@@ -6,7 +6,6 @@ const newsletterFormMachineConfig = {
       on: { SUBMIT: "submitted" }
     },
     submitted: {
-      onEntry: ["submitSignupForm"],
       on: { SIGNED_UP: "signedUp", ERROR: "ready" },
     },
     signedUp: {}
