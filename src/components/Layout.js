@@ -2,6 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 import Navbar from './Navbar'
+import Footer from './Footer'
 import './all.scss'
 
 const Layout = ({ bodyClass, children }) => (
@@ -19,6 +20,7 @@ const Layout = ({ bodyClass, children }) => (
     </Helmet>
     <Navbar />
     <div>{children}</div>
+    <Footer />
   </div>
 )
 
