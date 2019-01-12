@@ -40,7 +40,7 @@ const Navbar = () => (
         </div>
         <Logo />
         <div className="tagline">
-          <p>News for the East Bay's diverse, working-class majority</p>
+          <p>News for the East Bay's diverse, working-class majority.</p>
           <p>
             Brought to you by the Democratic Socialists of America, East Bay
             chapter.
