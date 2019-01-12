@@ -120,6 +120,7 @@ const BlogPost = ({ data }) => {
           property="og:url"
           content={`https://eastbaymajority.com/${post.slug}`}
         />
+        <meta property="og:type" content="article" />
         <meta property="og:title" content={he.decode(post.title)} />
         {post.excerpt && (
           <meta
