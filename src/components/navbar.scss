@@ -26,6 +26,7 @@
       height: $icon-size;
       margin-left: 15px;
       opacity: 0.8;
+      transition: opacity 0.15s;
 
       &:hover {
         opacity: 1;
