@@ -125,6 +125,7 @@ const BlogPost = ({ data }) => {
           />
         )}
         {imgAlt && <meta property="og:image:alt" content={imgAlt} />}
+        {imgSrc && <meta name="twitter:card" content="summary_large_image" />}
       </Helmet>
       <BlogPostTemplate
         content={post.content}
