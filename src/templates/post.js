@@ -15,19 +15,27 @@ export const BlogPostTemplate = ({
   author,
   imgSrc,
   imgAlt,
+  imgCaption,
 }) => {
   return (
     <section className="section">
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <img src={imgSrc} alt={imgAlt} />
             <h1
               className="title is-size-2 has-text-weight-bold is-bold-light"
               dangerouslySetInnerHTML={{
                 __html: title,
               }}
             />
+
+            {imgSrc && (
+              <div className="featured-image">
+                <img src={imgSrc} alt={imgAlt} />
+                <div dangerouslySetInnerHTML={{ __html: imgCaption }} />
+              </div>
+            )}
+
             <div className="date" style={{ marginBottom: `3rem` }}>
               <p>
                 <small>{date}</small>
@@ -87,6 +95,7 @@ const BlogPost = ({ data }) => {
   const imgSrc =
     featured_media && featured_media.localFile.childImageSharp.fluid.src
   const imgAlt = featured_media && featured_media.alt_text
+  const imgCaption = featured_media && featured_media.caption
 
   return (
     <Layout>
@@ -126,6 +135,7 @@ const BlogPost = ({ data }) => {
         author={post.author}
         imgSrc={imgSrc}
         imgAlt={imgAlt}
+        imgCaption={imgCaption}
       />
     </Layout>
   )
@@ -149,6 +159,7 @@ export const pageQuery = graphql`
     featured_media {
       id
       alt_text
+      caption
     }
   }
   query BlogPostByID($id: String!) {
@@ -161,6 +172,7 @@ export const pageQuery = graphql`
       date(formatString: "MMMM DD, YYYY")
       featured_media {
         alt_text
+        caption
         localFile {
           childImageSharp {
             fluid(maxWidth: 1500) {

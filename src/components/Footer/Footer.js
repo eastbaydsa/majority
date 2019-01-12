@@ -40,6 +40,10 @@ class Footer extends Component {
                   East Bay Chapter of the
                   <br />
                   Democratic Socialists of America
+                  <br />
+                  <a href="mailto:majority@eastbaydsa.org">
+                    majority@eastbaydsa.org
+                  </a>
                 </p>
               </div>
             </div>
