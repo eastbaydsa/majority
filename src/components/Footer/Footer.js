@@ -35,11 +35,11 @@ class Footer extends Component {
               <div className="ebdsa">
                 <img src={ebdsaLogo} alt="East Bay DSA" />
                 <p>
-                  A publication by the
+                  A publication of the
                   <br />
-                  East Bay Chapter of the
+                  Democratic Socialists of America,
                   <br />
-                  Democratic Socialists of America
+                  East Bay chapter.
                   <br />
                   <a href="mailto:majority@eastbaydsa.org">
                     majority@eastbaydsa.org

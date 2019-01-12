@@ -34,21 +34,26 @@
     }
   }
 
-  .ebdsa {
+  .tagline {
     margin-top: 14px;
 
     img {
       width: 50px;
       height: 62px;
+      margin-top: 25px;
     }
 
     p {
-      font-size: 18px;
       color: white;
       text-align: center;
       line-height: 1.3em;
       letter-spacing: 0.03em;
-      margin: 0 20px 25px;
+      margin: 0 20px 6px;
+      font-size: 13px;
+
+      &:first-child {
+        font-size: 18px;
+      }
     }
   }
 }
