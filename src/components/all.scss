@@ -78,15 +78,27 @@ body {
   .featured-image {
     width: 100%;
     text-align: center;
-  }
-
-  img {
-    max-width: 100%;
     padding: 0 20px 20px;
 
     @include bp(tablet) {
       padding-bottom: 30px;
     }
+
+    p {
+      text-align: left;
+      margin: 0;
+      font-style: italic;
+      font-size: 16px;
+
+      @include bp(tablet) {
+        font-size: 17px;
+        line-height: 1.55em;
+      }
+    }
+  }
+
+  img {
+    max-width: 100%;
   }
 }
 
