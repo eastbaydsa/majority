@@ -41,7 +41,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: ['/tags/*', '/categories/*', '/author/*', '/do-not-delete/'],
+        exclude: ['/tags/*', '/categories/*', '/author/*', '/do-not-delete'],
       },
     },
     'gatsby-plugin-sharp',
