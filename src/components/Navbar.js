@@ -1,6 +1,8 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import ebdsaLogo from '../img/ebdsa-logo@2x.png'
+import twitterLogo from '../img/twitter.svg'
+import facebookLogo from '../img/facebook.svg'
 import './navbar.scss'
 import Logo from './Logo'
 
@@ -20,6 +22,18 @@ const Navbar = () => (
     `}
     render={data => (
       <div className="header">
+        <div className="social">
+          <a href="https://twitter.com/eastbaymajority">
+            <img src={twitterLogo} alt="Twitter" className="social__twitter" />
+          </a>
+          <a href="https://www.facebook.com/EastBayMajority">
+            <img
+              src={facebookLogo}
+              alt="Facebook"
+              className="social__facebook"
+            />
+          </a>
+        </div>
         <Logo />
         <div className="ebdsa">
           <p>News for the East Bay's diverse, working-class majority</p>

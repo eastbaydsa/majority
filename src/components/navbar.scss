@@ -5,10 +5,32 @@
   background: $red;
   margin-bottom: 20px;
   text-align: center;
-  padding: 35px 0;
+  padding: 20px 0 35px;
 
   @include bp(tablet) {
     margin-bottom: 40px;
+  }
+
+  .social {
+    $icon-size: 25px;
+    text-align: right;
+    margin: 0 auto 30px;
+    padding: 0 20px;
+    max-width: map-get($breakpoints, tablet);
+
+    @include bp(tablet) {
+      margin-bottom: 10px;
+    }
+
+    img {
+      height: $icon-size;
+      margin-left: 15px;
+      opacity: 0.8;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 
   .ebdsa {
