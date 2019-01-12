@@ -95,6 +95,7 @@ class NewsletterSignup extends Component {
               onChange={this.handleChange('email')}
               value={this.state.email}
               label="Email Address"
+              type="email"
             />
           </div>
           <div className="newsletter__button-wrapper">
@@ -133,7 +134,7 @@ class NewsletterSignup extends Component {
   }
 }
 
-const Input = ({ onChange, value, label }) => (
+const Input = ({ onChange, value, label, type }) => (
   <TextField
     classes={{
       root: 'footer-input',
@@ -155,6 +156,7 @@ const Input = ({ onChange, value, label }) => (
     onChange={onChange}
     margin="dense"
     variant="outlined"
+    type={type}
   />
 )
 
