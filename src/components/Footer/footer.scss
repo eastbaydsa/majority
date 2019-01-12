@@ -59,6 +59,17 @@
       letter-spacing: 0.03em;
       margin: 10px 0 0;
     }
+
+    a {
+      color: white;
+      text-decoration: none;
+      margin-top: 8px;
+      display: inline-block;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 
