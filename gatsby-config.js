@@ -3,6 +3,7 @@ const proxy = require('http-proxy-middleware')
 module.exports = {
   siteMetadata: {
     title: 'Gatsby + WordPress Starter',
+    siteUrl: 'https://eastbaymajority.com',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -35,6 +36,12 @@ module.exports = {
         // Specify optional GTM environment details.
         // gtmAuth: 'YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_AUTH_STRING',
         // gtmPreview: 'YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_PREVIEW_NAME',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        exclude: ['/tags/*', '/categories/*', '/author/*'],
       },
     },
     'gatsby-plugin-sharp',
