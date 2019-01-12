@@ -5,7 +5,7 @@ const endpoint = 'https://www.eastbaydsa.org/external/signup-majority.json'
 success = callback => {
   callback(null, {
     statusCode: 200,
-    body: 'Success',
+    body: 'Success!',
   })
 }
 
