@@ -22,16 +22,12 @@ const Navbar = () => (
     `}
     render={data => (
       <div className="header">
-        <div className="social">
+        <div className="sm">
           <a href="https://twitter.com/eastbaymajority">
-            <img src={twitterLogo} alt="Twitter" className="social__twitter" />
+            <img src={twitterLogo} alt="Twitter" className="sm__twitter" />
           </a>
           <a href="https://www.facebook.com/EastBayMajority">
-            <img
-              src={facebookLogo}
-              alt="Facebook"
-              className="social__facebook"
-            />
+            <img src={facebookLogo} alt="Facebook" className="sm__facebook" />
           </a>
         </div>
         <Logo />
