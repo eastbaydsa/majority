@@ -80,7 +80,7 @@ class NewsletterSignup extends Component {
   render() {
     return (
       <div className="newsletter">
-        <h3>Sign up for Majority Newsletter</h3>
+        <h3>Sign up for Majority newsletter</h3>
         <MuiThemeProvider theme={theme}>
           <div className="newsletter__name">
             <Input
