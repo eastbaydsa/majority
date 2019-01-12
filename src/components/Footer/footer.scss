@@ -5,10 +5,10 @@
   background: $blue;
   min-height: 320px;
   color: $text-color-inverted;
-  margin-top: 20px;
+  margin-top: 40px;
 
   @include bp(tablet) {
-    margin-top: 40px;
+    margin-top: 80px;
   }
 }
 
