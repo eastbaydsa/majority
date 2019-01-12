@@ -75,10 +75,10 @@ class NewsletterSignup extends Component {
 
   render() {
     return (
-      <div className="newsletter-signup">
+      <div className="newsletter">
         <h3>Sign up for Majority Newsletter</h3>
         <MuiThemeProvider theme={theme}>
-          <div className="newsletter-signup__name">
+          <div className="newsletter__name">
             <Input
               onChange={this.handleChange('firstName')}
               value={this.state.firstName}
@@ -90,14 +90,14 @@ class NewsletterSignup extends Component {
               label="Last Name"
             />
           </div>
-          <div className="newsletter-signup__email">
+          <div className="newsletter__email">
             <Input
               onChange={this.handleChange('email')}
               value={this.state.email}
               label="Email Address"
             />
           </div>
-          <div className="newsletter-signup__button-wrapper">
+          <div className="newsletter__button-wrapper">
             {!this.state.loading && this.state.response === null && (
               <Button
                 onClick={this.submit}
@@ -107,8 +107,8 @@ class NewsletterSignup extends Component {
                   !this.state.email.includes('.')
                 }
                 variant="contained"
-                className="newsletter-signup__button"
-                classes={{ disabled: 'newsletter-signup__button--disabled' }}
+                className="newsletter__button"
+                classes={{ disabled: 'newsletter__button--disabled' }}
               >
                 Sign Up
               </Button>
@@ -116,16 +116,14 @@ class NewsletterSignup extends Component {
             {this.state.loading && (
               <CircularProgress
                 size={31}
-                className="newsletter-signup__progress"
-                classes={{ svg: 'newsletter-signup__progress-svg' }}
+                className="newsletter__progress"
+                classes={{ svg: 'newsletter__progress-svg' }}
               />
             )}
             {this.state.response && (
-              <p className="newsletter-signup__message">
-                {this.state.response}
-              </p>
+              <p className="newsletter__message">{this.state.response}</p>
             )}
-            <p className="newsletter-signup__fine-print">
+            <p className="newsletter__fine-print">
               We will never sell or share your data
             </p>
           </div>
