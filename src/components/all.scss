@@ -83,6 +83,10 @@ body {
       padding-bottom: 30px;
     }
   }
+
+  .date {
+    color: $light-text-color;
+  }
 }
 
 .post-listing {
@@ -90,6 +94,10 @@ body {
 
   @include bp(tablet) {
     margin-bottom: 40px;
+  }
+
+  &__date {
+    color: $light-text-color;
   }
 
   &__link {
