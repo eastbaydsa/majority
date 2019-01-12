@@ -103,9 +103,13 @@ const BlogPost = ({ data }) => {
         <title>{he.decode(post.title)} | East Bay Majority</title>
 
         <meta property="twitter:card" content="summary" />
-        {/* <meta property="twitter:site" content="@..." /> */}
-        {/* <meta property="twitter:creator" content="@..." /> */}
+        {/* <meta property="twitter:site" content="@eastbaymajority" /> */}
+        {/* <meta property="twitter:creator" content="@dsaeastbay" /> */}
 
+        <meta
+          property="og:url"
+          content={`https://eastbaymajority.com/${post.slug}`}
+        />
         <meta property="og:title" content={he.decode(post.title)} />
         {post.excerpt && (
           <meta
