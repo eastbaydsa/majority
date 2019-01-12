@@ -22,11 +22,19 @@ const Navbar = () => (
     `}
     render={data => (
       <div className="header">
-        <div className="sm">
-          <a href="https://twitter.com/eastbaymajority">
+        <div className="social">
+          <a
+            href="https://twitter.com/eastbaymajority"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img src={twitterLogo} alt="Twitter" className="sm__twitter" />
           </a>
-          <a href="https://www.facebook.com/EastBayMajority">
+          <a
+            href="https://www.facebook.com/EastBayMajority"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img src={facebookLogo} alt="Facebook" className="sm__facebook" />
           </a>
         </div>
