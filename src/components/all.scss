@@ -67,6 +67,14 @@ body {
     }
   }
 
+  small {
+    font-size: 14px;
+
+    @include bp(tablet) {
+      font-size: 16px;
+    }
+  }
+
   a {
     color: $red;
 
@@ -116,6 +124,12 @@ body {
 
   &__date {
     color: $light-text-color;
+    margin: 8px 0 12px;
+    display: inline-block;
+
+    @include bp(tablet) {
+      margin-top: 4px;
+    }
   }
 
   &__link {

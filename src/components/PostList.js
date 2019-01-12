@@ -22,11 +22,6 @@ export default class IndexPage extends React.Component {
             return (
               <div className="content post-listing" key={post.id}>
                 <Link to={post.slug} className="post-listing__link">
-                  <h2
-                    dangerouslySetInnerHTML={{
-                      __html: post.title,
-                    }}
-                  />
                   <small className="post-listing__date">
                     {post.date}
                     {/*  - posted by{' '}
@@ -34,6 +29,12 @@ export default class IndexPage extends React.Component {
                     {post.author.name}
                   </Link> */}
                   </small>
+                  <h2
+                    dangerouslySetInnerHTML={{
+                      __html: post.title,
+                    }}
+                  />
+
                   <div className="post-listing__details">
                     {imgSrc && (
                       <div className="post-listing__image">

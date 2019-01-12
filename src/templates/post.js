@@ -22,6 +22,12 @@ export const BlogPostTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
+            <div className="date">
+              <p>
+                <small>{date}</small>
+              </p>
+            </div>
+
             <h1
               className="title is-size-2 has-text-weight-bold is-bold-light"
               dangerouslySetInnerHTML={{
@@ -35,12 +41,6 @@ export const BlogPostTemplate = ({
                 <div dangerouslySetInnerHTML={{ __html: imgCaption }} />
               </div>
             )}
-
-            <div className="date" style={{ marginBottom: `3rem` }}>
-              <p>
-                <small>{date}</small>
-              </p>
-            </div>
 
             <div dangerouslySetInnerHTML={{ __html: content }} />
 
