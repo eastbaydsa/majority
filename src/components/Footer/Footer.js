@@ -31,7 +31,7 @@ class Footer extends Component {
               <NewsletterSignup />
             </div>
             <div className="footer__column footer__column--logos">
-              <Logo />
+              <Logo isSmall />
               <div className="ebdsa">
                 <img src={ebdsaLogo} alt="East Bay DSA" />
                 <p>
