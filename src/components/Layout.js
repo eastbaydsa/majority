@@ -19,6 +19,7 @@ const Layout = ({ bodyClass, children }) => (
 
       <meta property="og:site_name" content="East Bay Majority" />
       <meta property="og:url" content="https://eastbaymajority.com" />
+      <meta property="og:type" content="website" />
 
       <link
         href="https://fonts.googleapis.com/css?family=Anton"
