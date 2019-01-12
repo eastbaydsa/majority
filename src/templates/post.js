@@ -97,6 +97,16 @@ const BlogPost = ({ data }) => {
   const imgAlt = featured_media && featured_media.alt_text
   const imgCaption = featured_media && featured_media.caption
 
+  // TODO: fix this hack!
+  const imgSizes =
+    featured_media &&
+    featured_media.localFile.childImageSharp.fluid.sizes.split(' ')
+  const imgAspectRatio =
+    featured_media && featured_media.localFile.childImageSharp.fluid.aspectRatio
+  const imgWidth =
+    imgSizes && parseInt(imgSizes[imgSizes.length - 1].replace('px', ''))
+  const imgHeight = imgWidth / imgAspectRatio
+
   return (
     <Layout>
       <Helmet>
@@ -130,6 +140,8 @@ const BlogPost = ({ data }) => {
         )}
         {imgAlt && <meta property="og:image:alt" content={imgAlt} />}
         {imgSrc && <meta name="twitter:card" content="summary_large_image" />}
+        {imgSrc && <meta property="og:image:height" content={imgHeight} />}
+        {imgSrc && <meta property="og:image:width" content={imgWidth} />}
       </Helmet>
       <BlogPostTemplate
         content={post.content}
