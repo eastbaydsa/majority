@@ -9,6 +9,9 @@ const Layout = ({ bodyClass, children }) => (
   <div>
     <Helmet bodyAttributes={{ class: bodyClass }}>
       <title>East Bay Majority</title>
+
+      <link rel="icon" type="image/png" href="/favicon.ico" />
+
       <meta
         name="description"
         content="News for the East Bay's diverse, working-class majority. A publication by the East Bay Chapter of the Democratic Socialists of America."
