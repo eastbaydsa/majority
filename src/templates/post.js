@@ -28,13 +28,22 @@ export const BlogPostTemplate = ({
                 __html: title,
               }}
             />
+
             {imgSrc && (
               <div className="featured-image">
                 <img src={imgSrc} alt={imgAlt} />
                 <div dangerouslySetInnerHTML={{ __html: imgCaption }} />
               </div>
             )}
+
+            <div className="date" style={{ marginBottom: `3rem` }}>
+              <p>
+                <small>{date}</small>
+              </p>
+            </div>
+
             <div dangerouslySetInnerHTML={{ __html: content }} />
+
             {/* <div style={{ marginTop: `4rem` }}>
               <p>
                 {date} - posted by{' '}

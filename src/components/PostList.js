@@ -27,13 +27,13 @@ export default class IndexPage extends React.Component {
                       __html: post.title,
                     }}
                   />
-                  {/* <small>
+                  <small className="post-listing__date">
                     {post.date}
-                    - posted by{' '}
-                  <Link to={`/author/${post.author.slug}`}>
+                    {/*  - posted by{' '}
+                   <Link to={`/author/${post.author.slug}`}>
                     {post.author.name}
-                  </Link>
-                  </small> */}
+                  </Link> */}
+                  </small>
                   <div className="post-listing__details">
                     {imgSrc && (
                       <div className="post-listing__image">
