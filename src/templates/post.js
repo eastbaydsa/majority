@@ -141,6 +141,14 @@ const BlogPost = ({ data }) => {
         {image && (
           <meta property="og:image:width" content={fluid.presentationWidth} />
         )}
+
+        <style>{`
+          @media (max-width: ${fluid.presentationWidth}px) {
+            figcaption {
+              margin: 0 20px;
+            }
+          }
+        `}</style>
       </Helmet>
       <BlogPostTemplate
         content={post.content}
