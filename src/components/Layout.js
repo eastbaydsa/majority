@@ -18,6 +18,11 @@ const Layout = ({ bodyClass, children }) => (
         content="News for the East Bay's diverse, working-class majority. A publication by the East Bay Chapter of the Democratic Socialists of America."
       />
 
+      <meta
+        name="google-site-verification"
+        content="kB_f4HWcQtu3pvQxjI5bJVO7PNqbEIQb006RLpAtphQ"
+      />
+
       <meta property="og:site_name" content="East Bay Majority" />
       <meta property="og:url" content="https://eastbaymajority.com" />
       <meta property="og:type" content="website" />
