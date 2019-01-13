@@ -2,7 +2,7 @@ const proxy = require('http-proxy-middleware')
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + WordPress Starter',
+    title: 'East Bay Majority',
     siteUrl: 'https://eastbaymajority.com',
   },
   plugins: [
