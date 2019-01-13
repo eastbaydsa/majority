@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import Img from 'gatsby-image'
 // import { graphql, Link } from 'gatsby'
 import { graphql } from 'gatsby'
 import he from 'he'
@@ -13,7 +14,7 @@ export const BlogPostTemplate = ({
   title,
   date,
   author,
-  imgSrc,
+  img,
   imgAlt,
   imgCaption,
 }) => {
@@ -35,11 +36,11 @@ export const BlogPostTemplate = ({
               }}
             />
 
-            {imgSrc && (
-              <div className="featured-image">
-                <img src={imgSrc} alt={imgAlt} />
-                <div dangerouslySetInnerHTML={{ __html: imgCaption }} />
-              </div>
+            {img && (
+              <figure className="featured-image">
+                <NonStretchedImage fluid={img} alt={imgAlt} />
+                <figcaption dangerouslySetInnerHTML={{ __html: imgCaption }} />
+              </figure>
             )}
 
             <div dangerouslySetInnerHTML={{ __html: content }} />
@@ -90,22 +91,8 @@ BlogPostTemplate.propTypes = {
 
 const BlogPost = ({ data }) => {
   const { wordpressPost: post } = data
-
-  const { featured_media } = post
-  const imgSrc =
-    featured_media && featured_media.localFile.childImageSharp.fluid.src
-  const imgAlt = featured_media && featured_media.alt_text
-  const imgCaption = featured_media && featured_media.caption
-
-  // TODO: fix this hack!
-  const imgSizes =
-    featured_media &&
-    featured_media.localFile.childImageSharp.fluid.sizes.split(' ')
-  const imgAspectRatio =
-    featured_media && featured_media.localFile.childImageSharp.fluid.aspectRatio
-  const imgWidth =
-    imgSizes && parseInt(imgSizes[imgSizes.length - 1].replace('px', ''))
-  const imgHeight = imgWidth / imgAspectRatio
+  const { featured_media: image } = post
+  const fluid = image && image.localFile.childImageSharp.fluid
 
   return (
     <Layout>
@@ -121,7 +108,7 @@ const BlogPost = ({ data }) => {
           content={`https://eastbaymajority.com/${post.slug}`}
         />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={he.decode(post.title)} />
+        <meta property="og:title" content={he.decode(post.title).trim()} />
         {post.excerpt && (
           <meta
             property="og:description"
@@ -130,19 +117,27 @@ const BlogPost = ({ data }) => {
                 .replace(/<p class="link-more.*/, '')
                 .replace('<p>', '')
                 .replace('</p>', '')
+                .trim()
             )}
           />
         )}
-        {imgSrc && (
+
+        {image && <meta name="twitter:card" content="summary_large_image" />}
+        {image && (
           <meta
             property="og:image"
-            content={`https://eastbaymajority.com${imgSrc}`}
+            content={`https://eastbaymajority.com${fluid.src}`}
           />
         )}
-        {imgAlt && <meta property="og:image:alt" content={imgAlt} />}
-        {imgSrc && <meta name="twitter:card" content="summary_large_image" />}
-        {imgSrc && <meta property="og:image:height" content={imgHeight} />}
-        {imgSrc && <meta property="og:image:width" content={imgWidth} />}
+        {image && image.alt_text && (
+          <meta property="og:image:alt" content={image.alt_text.trim()} />
+        )}
+        {image && (
+          <meta property="og:image:height" content={fluid.presentationHeight} />
+        )}
+        {image && (
+          <meta property="og:image:width" content={fluid.presentationWidth} />
+        )}
       </Helmet>
       <BlogPostTemplate
         content={post.content}
@@ -151,12 +146,29 @@ const BlogPost = ({ data }) => {
         title={post.title}
         date={post.date}
         author={post.author}
-        imgSrc={imgSrc}
-        imgAlt={imgAlt}
-        imgCaption={imgCaption}
+        img={fluid}
+        imgAlt={image.alt_text}
+        imgCaption={image.caption}
       />
     </Layout>
   )
+}
+
+// https://www.gatsbyjs.org/packages/gatsby-image/#avoiding-stretched-images-using-the-fluid-type
+const NonStretchedImage = props => {
+  let normalizedProps = props
+  if (props.fluid && props.fluid.presentationWidth) {
+    normalizedProps = {
+      ...props,
+      style: {
+        ...(props.style || {}),
+        maxWidth: props.fluid.presentationWidth,
+        margin: '0 auto', // Used to center the image
+      },
+    }
+  }
+
+  return <Img {...normalizedProps} />
 }
 
 BlogPost.propTypes = {
@@ -193,8 +205,10 @@ export const pageQuery = graphql`
         caption
         localFile {
           childImageSharp {
-            fluid(maxWidth: 1500) {
+            fluid(maxWidth: 728) {
               ...GatsbyImageSharpFluid_withWebp
+              presentationWidth
+              presentationHeight
             }
           }
         }

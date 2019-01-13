@@ -88,6 +88,7 @@ body {
     width: 100%;
     text-align: center;
     padding: 0 20px 20px;
+    margin: 0;
 
     @include bp(tablet) {
       padding-bottom: 30px;
@@ -105,10 +106,6 @@ body {
         line-height: 1.55em;
       }
     }
-  }
-
-  img {
-    max-width: 100%;
   }
 
   .date {
