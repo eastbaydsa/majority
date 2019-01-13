@@ -1,5 +1,6 @@
 @import '../colors';
 @import '../breakpoints';
+@import '../typography';
 
 .footer {
   background: $blue;
@@ -134,10 +135,6 @@
     .footer-input:first-child {
       margin-right: 8px;
     }
-  }
-
-  &__input {
-    font-family: 'ManifoldDSA', 'Helvetica Neue', Arial, Sans-Serif;
   }
 
   &__button-wrapper {

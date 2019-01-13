@@ -12,9 +12,8 @@ import ebdsaLogo from '../../img/ebdsa-logo@2x.png'
 const theme = createMuiTheme({
   typography: {
     useNextVariants: true,
-    fontFamily: ['ManifoldDSA', 'Helvetica Neue', 'Arial', 'Sans-Serif'].join(
-      ','
-    ),
+    fontFamily:
+      "'ManifoldDSA', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans- serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
   },
   palette: {
     type: 'dark',
