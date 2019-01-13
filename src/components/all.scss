@@ -3,12 +3,12 @@
 @import 'fonts';
 @import 'typography';
 
-body {
-  font-family: $manifold;
+body.front-page {
+  background: #eee;
+}
 
-  &.front-page {
-    background: #eee;
-  }
+.majority {
+  font-family: $manifold;
 }
 
 .content {

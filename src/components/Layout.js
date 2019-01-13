@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 
 import Navbar from './Navbar'
 import Footer from './Footer'
+import 'modern-normalize/modern-normalize.css'
 import './all.scss'
 
 const Layout = ({ bodyClass, children }) => (
