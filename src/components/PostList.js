@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 export default class IndexPage extends React.Component {
   render() {
@@ -14,10 +15,8 @@ export default class IndexPage extends React.Component {
           </div> */}
           {posts.map(({ node: post }) => {
             const { featured_media } = post
-            const imgSrc =
-              featured_media &&
-              featured_media.localFile.childImageSharp.fluid.src
-            const imgAlt = featured_media && featured_media.alt_text
+            const fluid =
+              featured_media && featured_media.localFile.childImageSharp.fluid
 
             return (
               <div className="content post-listing" key={post.id}>
@@ -36,9 +35,12 @@ export default class IndexPage extends React.Component {
                   />
 
                   <div className="post-listing__details">
-                    {imgSrc && (
-                      <div className="post-listing__image">
-                        <img src={imgSrc} alt={imgAlt} />
+                    {featured_media && (
+                      <div
+                        className="post-listing__image"
+                        style={{ maxWidth: fluid.presentationWidth }}
+                      >
+                        <Img fluid={fluid} alt={featured_media.alt_text} />
                       </div>
                     )}
                     <div className="post-listing__description">
@@ -88,8 +90,9 @@ export const pageQuery = graphql`
       alt_text
       localFile {
         childImageSharp {
-          fluid(maxWidth: 520) {
+          fluid(maxWidth: 295) {
             ...GatsbyImageSharpFluid_withWebp
+            presentationWidth
           }
         }
       }
