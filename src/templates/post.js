@@ -37,8 +37,11 @@ export const BlogPostTemplate = ({
             />
 
             {img && (
-              <figure className="featured-image">
-                <NonStretchedImage fluid={img} alt={imgAlt} />
+              <figure
+                className="featured-image"
+                style={{ maxWidth: img.presentationWidth }}
+              >
+                <Img fluid={img} alt={imgAlt} />
                 <figcaption dangerouslySetInnerHTML={{ __html: imgCaption }} />
               </figure>
             )}
@@ -152,23 +155,6 @@ const BlogPost = ({ data }) => {
       />
     </Layout>
   )
-}
-
-// https://www.gatsbyjs.org/packages/gatsby-image/#avoiding-stretched-images-using-the-fluid-type
-const NonStretchedImage = props => {
-  let normalizedProps = props
-  if (props.fluid && props.fluid.presentationWidth) {
-    normalizedProps = {
-      ...props,
-      style: {
-        ...(props.style || {}),
-        maxWidth: props.fluid.presentationWidth,
-        margin: '0 auto', // Used to center the image
-      },
-    }
-  }
-
-  return <Img {...normalizedProps} />
 }
 
 BlogPost.propTypes = {
