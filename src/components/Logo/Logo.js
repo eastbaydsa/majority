@@ -7,7 +7,7 @@ export default function Logo({ isSmall }) {
   return (
     <Link to="/" className="logo-link">
       <div className={classNames('logo', { 'logo--small': isSmall })}>
-        <span className="logo__majority">MAJORITY</span>
+        MAJORITY
       </div>
     </Link>
   )

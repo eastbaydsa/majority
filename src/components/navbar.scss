@@ -1,37 +1,18 @@
 @import 'breakpoints';
 @import 'colors';
 
+$sticky-header-height: 45px;
+$sticky-header-height-tablet: 55px;
+
 .header {
   background: $red;
   text-align: center;
-  padding: 20px 0 35px;
+  padding: 30px 0 $sticky-header-height;
   margin-bottom: 35px;
 
   @include bp(tablet) {
     margin-bottom: 80px;
-  }
-
-  .social {
-    $icon-size: 25px;
-    text-align: right;
-    margin: 0 auto 30px;
-    padding: 0 20px;
-    max-width: map-get($breakpoints, tablet);
-
-    @include bp(tablet) {
-      margin-bottom: 10px;
-    }
-
-    img {
-      height: $icon-size;
-      margin-left: 15px;
-      opacity: 0.8;
-      transition: opacity 0.15s;
-
-      &:hover {
-        opacity: 1;
-      }
-    }
+    padding-bottom: $sticky-header-height-tablet;
   }
 
   .tagline {
@@ -55,5 +36,78 @@
         font-size: 18px;
       }
     }
+  }
+
+  .social {
+    margin: 0 auto 30px;
+    padding: 0 20px;
+
+    @include bp(tablet) {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.sticky-header {
+  height: $sticky-header-height;
+  background-color: $red;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+
+  @include bp(tablet) {
+    height: $sticky-header-height-tablet;
+  }
+}
+
+.sticky-header-content {
+  height: $sticky-header-height;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+
+  @include bp(tablet) {
+    height: $sticky-header-height-tablet;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  h2 {
+    line-height: $sticky-header-height;
+    font-family: Anton, Impact, Helvetica, 'Arial Black', sans-serif;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    font-weight: normal;
+    font-size: 28px;
+
+    @include bp(tablet) {
+      line-height: $sticky-header-height-tablet;
+      font-size: 31px;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      display: block;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .social img {
+    height: 22px;
   }
 }

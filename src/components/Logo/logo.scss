@@ -8,18 +8,11 @@
   text-align: center;
   display: inline-block;
   user-select: none;
+  font-size: 76px;
+  letter-spacing: 0.01em;
 
-  &__east-bay {
-    display: block;
-    font-size: 28px;
-  }
-
-  &__majority {
-    display: block;
-    font-size: 76px;
-    letter-spacing: 0.01em;
-    // margin-top: 6px;
-    // padding-top: 6px;
+  &:hover {
+    text-decoration: underline;
   }
 
   &--small {
