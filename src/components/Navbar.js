@@ -32,7 +32,6 @@ class Navbar extends Component {
   }
 
   onResize = () => {
-    console.log('onResize')
     this.setStickyScrollPos()
     this.onScroll()
   }
