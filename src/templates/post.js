@@ -108,7 +108,7 @@ const BlogPost = ({ data }) => {
 
         <meta
           property="og:url"
-          content={`https://eastbaymajority.com/${post.slug}`}
+          content={`https://eastbaymajority.com/${post.slug}/`}
         />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={he.decode(post.title).trim()} />
