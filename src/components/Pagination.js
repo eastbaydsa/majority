@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import styles from './pagination.module.scss'
 
 const Pagination = ({ pageContext, pathPrefix }) => {
-  console.log(pageContext)
   const { previousPagePath, nextPagePath } = pageContext
 
   return (
