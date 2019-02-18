@@ -3,15 +3,12 @@
 @import 'fonts';
 @import 'typography';
 
-body.front-page {
-  background: #eee;
+body {
+  font-family: $manifold;
 }
 
-// TODO: this should be on body
-// but gatsby is including the normalize stylesheet
-// in the wrong order in the prod build
-.majority {
-  font-family: $manifold;
+body.front-page {
+  background: #eee;
 }
 
 .content {
