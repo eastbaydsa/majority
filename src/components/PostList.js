@@ -20,7 +20,7 @@ export default class IndexPage extends React.Component {
 
             return (
               <div className="content post-listing" key={post.id}>
-                <Link to={post.slug + '/'} className="post-listing__link">
+                <Link to={`/${post.slug}/`} className="post-listing__link">
                   <small className="post-listing__date">
                     {post.date}
                     {/*  - posted by{' '}
