@@ -8,7 +8,10 @@ import Drawer from './drawer/drawer.component'
 import 'modern-normalize/modern-normalize.css'
 import './all.scss'
 
-const _isMobile = () => window.outerWidth < 768
+const _isMobile = () => {
+  if (typeof window === 'undefined') return false
+  return window.outerWidth < 768
+}
 
 class Layout extends Component {
   state = {
