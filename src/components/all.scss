@@ -5,10 +5,14 @@
 
 body {
   font-family: $manifold;
+
+  &.front-page {
+    background: #eee;
+  }
 }
 
-body.front-page {
-  background: #eee;
+.blurred {
+  filter: blur(2px);
 }
 
 .content {

@@ -1,0 +1,96 @@
+@import 'breakpoints';
+@import 'colors';
+
+.newsletter {
+  margin-bottom: 60px;
+  padding-bottom: 60px;
+  border-bottom: solid 1px rgba(white, 0.2);
+
+  @include bp(tablet) {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  h3 {
+    max-width: 400px;
+    margin: 0 auto 12px;
+    font-family: 'Rasa', serif;
+    font-weight: 500;
+    font-size: 25px;
+    text-align: center;
+
+    @include bp(tablet) {
+      text-align: left;
+    }
+  }
+
+  &__name,
+  &__email {
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  &__name {
+    flex-direction: row;
+    justify-content: space-between;
+
+    .footer-input:first-child {
+      margin-right: 8px;
+    }
+  }
+
+  &__button-wrapper {
+    max-width: 400px;
+    margin: 12px auto 0;
+    text-align: center;
+
+    @include bp(tablet) {
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__button {
+    height: 49px !important;
+    font-size: 16px !important;
+    padding: 6px 25px !important;
+
+    &:not(&--disabled) {
+      background-color: white;
+    }
+  }
+
+  &__fine-print {
+    font-style: italic;
+    color: rgba(white, 0.8);
+    font-size: 13px;
+
+    @include bp(tablet) {
+      margin: 0;
+    }
+  }
+
+  &__progress {
+    margin: 9px 0;
+  }
+
+  &__progress-svg {
+    color: white;
+  }
+
+  &__message {
+    font-weight: bold;
+    margin: 0;
+    line-height: 49px;
+
+    &--error {
+      color: $red;
+    }
+  }
+}

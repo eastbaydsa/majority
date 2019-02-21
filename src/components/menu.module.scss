@@ -1,0 +1,73 @@
+@import 'breakpoints';
+@import 'colors';
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba($red, 0.9);
+  z-index: 100;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 85px;
+}
+
+.menuItems {
+  margin-top: 10px;
+}
+
+.menuItem {
+  margin-top: 25px;
+
+  a {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    text-transform: uppercase;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.ebdsaLogo {
+  width: 50px;
+  height: 62px;
+  margin: 40px;
+}
+
+.closeWrapper {
+  width: 100%;
+  max-width: map-get($breakpoints, tablet);
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: left;
+  padding: 0 20px;
+}
+
+.close {
+  color: white;
+  font-size: 55px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 10px;
+  position: relative;
+  left: -10px;
+
+  &:hover {
+    color: rgba(white, 0.9);
+  }
+
+  .inDrawer & {
+    top: 10px;
+  }
+}

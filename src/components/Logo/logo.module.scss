@@ -1,4 +1,4 @@
-.logo-link {
+.link {
   display: inline-block;
 }
 
@@ -14,8 +14,8 @@
   &:hover {
     text-decoration: underline;
   }
+}
 
-  &--small {
-    font-size: 56px;
-  }
+.small {
+  font-size: 56px;
 }

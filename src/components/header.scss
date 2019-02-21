@@ -1,8 +1,4 @@
-@import 'breakpoints';
-@import 'colors';
-
-$sticky-header-height: 45px;
-$sticky-header-height-tablet: 55px;
+@import 'core';
 
 .header {
   background: $red;
@@ -36,6 +32,14 @@ $sticky-header-height-tablet: 55px;
         font-size: 18px;
       }
     }
+  }
+
+  .hamburger-wrapper {
+    width: 100%;
+    max-width: map-get($breakpoints, tablet);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .social {
@@ -84,7 +88,7 @@ $sticky-header-height-tablet: 55px;
   h2 {
     line-height: $sticky-header-height;
     font-family: Anton, Impact, Helvetica, 'Arial Black', sans-serif;
-    margin: 0;
+    margin: 0 0 0 ($hamburger-width + 15px);
     padding: 0;
     letter-spacing: 0.01em;
     -webkit-font-smoothing: antialiased;
@@ -109,5 +113,16 @@ $sticky-header-height-tablet: 55px;
 
   .social img {
     height: 22px;
+  }
+}
+
+.sticky-header {
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__right {
+    display: flex;
   }
 }

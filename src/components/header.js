@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { VelocityTransitionGroup } from 'velocity-react'
+import classNames from 'classnames'
 import ebdsaLogo from '../img/ebdsa-logo@2x.png'
 import SocialMedia from './social-media'
+import Menu from './menu'
+import Hamburger from './hamburger/hamburger.component'
 
-import './navbar.scss'
+import './header.scss'
 import Logo from './Logo'
 
-class Navbar extends Component {
+class Header extends Component {
   state = {
     stickyHeaderEnabled: false,
   }
@@ -16,16 +19,17 @@ class Navbar extends Component {
     this.setStickyScrollPos()
     window.addEventListener('scroll', this.onScroll)
     window.addEventListener('resize', this.onResize)
+    window.addEventListener('keydown', this.onKeydown)
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScroll)
     window.removeEventListener('resize', this.onResize)
+    window.removeEventListener('keydown', this.onKeydown)
   }
 
   onScroll = () => {
-    const scrollPos = window.scrollY
-    const stickyHeaderEnabled = scrollPos >= this.stickyHeaderPos
+    const stickyHeaderEnabled = window.scrollY >= this.stickyHeaderPos
     if (stickyHeaderEnabled !== this.state.stickyHeaderEnabled) {
       this.setState({ stickyHeaderEnabled })
     }
@@ -51,6 +55,19 @@ class Navbar extends Component {
     )
   }
 
+  openMenu = () => this.props.setMenuOpen(true)
+
+  closeMenu = () => this.props.setMenuOpen(false)
+
+  toggleMenu = () => this.props.setMenuOpen(!this.props.menuOpen)
+
+  onKeydown = e => {
+    const escKeyCode = 27
+    if (e.which === escKeyCode) {
+      this.closeMenu()
+    }
+  }
+
   render() {
     return (
       <StaticQuery
@@ -68,6 +85,9 @@ class Navbar extends Component {
         `}
         render={data => (
           <>
+            {this.props.menuOpen && this.props.isMobile && (
+              <Menu onClose={this.closeMenu} />
+            )}
             {this.state.stickyHeaderEnabled && (
               <div className="sticky-header" />
             )}
@@ -75,18 +95,39 @@ class Navbar extends Component {
               enter={{ animation: 'fadeIn', duration: 250 }}
             >
               {this.state.stickyHeaderEnabled && (
-                <div className="sticky-header-content">
+                <div
+                  className={classNames('sticky-header-content', {
+                    blurred: this.props.menuOpen && this.props.isMobile,
+                  })}
+                >
                   <div className="sticky-header-content__inner">
-                    <h2>
-                      <Link to="/">MAJORITY</Link>
-                    </h2>
-                    <SocialMedia />
+                    <div className="sticky-header__left">
+                      {!this.props.menuOpen && (
+                        <Hamburger isInStickyHeader onClick={this.toggleMenu} />
+                      )}
+                      <h2>
+                        <Link to="/">MAJORITY</Link>
+                      </h2>
+                    </div>
+                    <div className="sticky-header__right">
+                      <SocialMedia />
+                    </div>
                   </div>
                 </div>
               )}
             </VelocityTransitionGroup>
 
-            <div className="header" ref={this.bindHeaderRef}>
+            <div
+              className={classNames('header', {
+                blurred: this.props.menuOpen && this.props.isMobile,
+              })}
+              ref={this.bindHeaderRef}
+            >
+              {!(this.props.menuOpen && this.props.isMobile) && (
+                <div className="hamburger-wrapper">
+                  <Hamburger onClick={this.toggleMenu} />
+                </div>
+              )}
               <SocialMedia />
               <Logo />
               <div className="tagline">
@@ -118,4 +159,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar
+export default Header

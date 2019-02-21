@@ -1,0 +1,46 @@
+@import '../core';
+
+$hamburger-item-margin: 4px;
+$hamburger-item-height: ($hamburger-height - $hamburger-item-margin * 2) / 3;
+
+.hamburger {
+  width: $hamburger-width;
+  height: $hamburger-height;
+  position: absolute;
+  // top: ($sticky-header-height -$hamburger-height) / 2;
+  // top: 34px;
+  left: 20px;
+  cursor: pointer;
+
+  div {
+    background: white;
+    height: $hamburger-item-height;
+    border-radius: $hamburger-item-height / 2;
+    position: absolute;
+    width: 100%;
+  }
+
+  &:hover div {
+    background: rgba(white, 0.9);
+  }
+}
+
+.inStickyHeader {
+  top: ($sticky-header-height - $hamburger-height) / 2;
+
+  @include bp(tablet) {
+    top: ($sticky-header-height-tablet - $hamburger-height) / 2;
+  }
+}
+
+.line1 {
+  top: 0;
+}
+
+.line2 {
+  top: $hamburger-item-height + $hamburger-item-margin;
+}
+
+.line3 {
+  bottom: 0;
+}
