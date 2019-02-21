@@ -10,7 +10,7 @@ import './all.scss'
 
 const _isMobile = () => {
   if (typeof window === 'undefined') return false
-  return window.outerWidth < 768
+  return window.innerWidth < 768
 }
 
 class Layout extends Component {
@@ -20,6 +20,7 @@ class Layout extends Component {
   }
 
   componentDidMount() {
+    this.onResize()
     window.addEventListener('resize', this.onResize)
     document.addEventListener('click', this.onDocumentClick)
   }
