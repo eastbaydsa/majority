@@ -141,14 +141,15 @@ const BlogPost = ({ data }) => {
         {image && (
           <meta property="og:image:width" content={fluid.presentationWidth} />
         )}
-
-        <style>{`
+        {fluid && (
+          <style>{`
           @media (max-width: ${fluid.presentationWidth}px) {
             figcaption {
               margin: 0 20px;
             }
           }
         `}</style>
+        )}
       </Helmet>
       <BlogPostTemplate
         content={post.content}
@@ -158,8 +159,8 @@ const BlogPost = ({ data }) => {
         date={post.date}
         author={post.author}
         img={fluid}
-        imgAlt={image.alt_text}
-        imgCaption={image.caption}
+        imgAlt={image && image.alt_text}
+        imgCaption={image && image.caption}
       />
     </Layout>
   )
