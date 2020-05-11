@@ -12,10 +12,12 @@ module.exports = {
       resolve: 'gatsby-source-wordpress',
       options: {
         // The base url to your WP site.
+        // baseUrl: 'localhost:9090',
         baseUrl: 'wordpress.eastbaymajority.com',
         // WP.com sites set to true, WP.org set to false
         hostingWPCOM: false,
         // The protocol. This can be http or https.
+        // protocol: 'http',
         protocol: 'https',
         // Use 'Advanced Custom Fields' Wordpress plugin
         useACF: false,

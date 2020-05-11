@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import classNames from 'classnames'
+import fitvids from 'fitvids'
 
 import Header from './header'
 import Footer from './Footer'
@@ -23,6 +24,7 @@ class Layout extends Component {
     this.onResize()
     window.addEventListener('resize', this.onResize)
     document.addEventListener('click', this.onDocumentClick)
+    fitvids()
   }
 
   componentWillUnmount() {
