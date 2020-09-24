@@ -192,3 +192,34 @@ body {
     color: $text-color;
   }
 }
+
+.ahs-strike-figure {
+  @include bp(tablet) {
+    width: 50%;
+
+    &--left {
+      float: left;
+    }
+
+    &--right {
+      float: right;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+hr {
+  margin: 30px 20px;
+}
+
+.clearfix {
+  &::after {
+    display: block;
+    content: '';
+    clear: both;
+  }
+}
