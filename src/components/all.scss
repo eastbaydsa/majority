@@ -193,6 +193,7 @@ body {
   }
 }
 
+/* purgecss start ignore */
 .ahs-strike-figure {
   @include bp(tablet) {
     width: 50%;
@@ -223,3 +224,4 @@ hr {
     clear: both;
   }
 }
+/* purgecss end ignore */
