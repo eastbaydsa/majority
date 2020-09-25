@@ -197,12 +197,12 @@ body {
   @include bp(tablet) {
     width: 50%;
 
-    &--left {
-      float: left;
-    }
-
     &--right {
       float: right;
+    }
+
+    &--left {
+      float: left;
     }
   }
 
